@@ -484,11 +484,12 @@ function! s:ProcessMatch(match)
   let pt = prop_type_get(group, {'bufnr': n_buf})
   let b_create = empty(pt)
 
+  let brightness = rgb_color[0] + rgb_color[1] + rgb_color[2]
   let cmd_highlight = [
         \ 'highlight',
         \ group,
         \ 'guibg=#' . call('printf', ['%02x%02x%02x'] + rgb_color),
-        \ 'guifg=fg',
+        \ 'guifg=' .  (brightness > 382 ? 'black' : 'white'),
       \]
   execute join(cmd_highlight, ' ')
 
