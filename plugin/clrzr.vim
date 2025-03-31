@@ -35,7 +35,7 @@ let loaded_clrzr = 1
 let s:save_cpo = &cpo
 set cpo&vim
 
-command! ClrzrOn      call clrzr#Enable()
+command! ClrzrOn      call clrzr#Enable() | call clrzr#Refresh()
 command! ClrzrOff     call clrzr#Disable()
 command! ClrzrAposTog call clrzr#AlphaPosToggle()
 command! ClrzrRefresh call clrzr#Refresh()
